@@ -1,0 +1,108 @@
+
+import { useEffect, useState } from 'react';
+import { ArrowRight, Download, MapPin, Mail, Phone } from 'lucide-react';
+
+const Hero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const roles = [
+    "QA & QC Team Lead",
+    "ISTQB® CTFL, CTAL-TA, CTAL-TTA",
+    "Automation Engineer",
+    "CI/CD Specialist"
+  ];
+
+  return (
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Animated background circuit */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-1/4 left-0 w-full h-0.5 circuit-line"></div>
+        <div className="absolute top-1/2 left-0 w-full h-0.5 circuit-line" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-3/4 left-0 w-full h-0.5 circuit-line" style={{animationDelay: '2s'}}></div>
+      </div>
+
+      {/* Floating particles */}
+      <div className="absolute inset-0">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-sunset-orange rounded-full opacity-30 animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${i * 0.5}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <span className="text-white">Al-Tofail</span>
+            <br />
+            <span className="text-gradient">Al-Hiary</span>
+          </h1>
+          
+          <div className="text-xl md:text-2xl text-gray-300 mb-4 h-8">
+            <div className="typewriter font-mono">
+              {roles[0]}
+            </div>
+          </div>
+          
+          <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+            Quality ∙ Velocity ∙ Reliability
+          </p>
+
+          {/* Contact info chips */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="glass-card px-4 py-2 rounded-full flex items-center space-x-2">
+              <MapPin size={16} className="text-sunset-orange" />
+              <span className="text-sm text-gray-300">Amman, Jordan (UTC +03)</span>
+            </div>
+            <div className="glass-card px-4 py-2 rounded-full flex items-center space-x-2">
+              <Mail size={16} className="text-sunset-orange" />
+              <span className="text-sm text-gray-300">tofailhiary@gmail.com</span>
+            </div>
+            <div className="glass-card px-4 py-2 rounded-full flex items-center space-x-2">
+              <Phone size={16} className="text-sunset-orange" />
+              <span className="text-sm text-gray-300">+962 777 894 429</span>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#contact"
+              className="btn-primary inline-flex items-center space-x-2 group"
+            >
+              <span>Get In Touch</span>
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="/CV_AlTofailAlHiary.pdf"
+              download
+              className="btn-secondary inline-flex items-center space-x-2 group"
+            >
+              <Download size={20} className="group-hover:translate-y-1 transition-transform" />
+              <span>Download CV</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-sunset-orange rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-sunset-orange rounded-full mt-2 animate-pulse"></div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;

@@ -1,0 +1,162 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 35 100% 52%;
+    --primary-foreground: 240 10% 3.9%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 35 100% 52%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 35 100% 52%;
+    --sidebar-primary-foreground: 240 10% 3.9%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 35 100% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-space;
+    background: radial-gradient(ellipse at top, #023047 0%, #001219 50%, #000000 100%);
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #001219;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #F77F00, #FFB703);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #FF9500, #FFD60A);
+  }
+
+  /* Glassmorphism utility */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card {
+    background: rgba(247, 127, 0, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(247, 127, 0, 0.2);
+  }
+
+  /* Circuit animation */
+  .circuit-line {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .circuit-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #F77F00, #FFB703, transparent);
+    animation: circuit 3s linear infinite;
+  }
+
+  /* Custom cursor */
+  .custom-cursor {
+    cursor: none;
+  }
+
+  /* Typing animation */
+  .typewriter {
+    overflow: hidden;
+    border-right: 2px solid #F77F00;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-sunset-orange to-sunset-amber text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sunset-orange/25;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border-2 border-sunset-orange text-sunset-orange font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-sunset-orange hover:text-white;
+  }
+
+  .section-padding {
+    @apply py-16 px-4 md:px-8 lg:px-12;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-sunset-orange to-sunset-amber bg-clip-text text-transparent;
+  }
+
+  .skill-bar {
+    @apply h-2 bg-gray-800 rounded-full overflow-hidden;
+  }
+
+  .skill-progress {
+    @apply h-full bg-gradient-to-r from-sunset-orange to-sunset-amber rounded-full transition-all duration-1000 ease-out;
+  }
+}
