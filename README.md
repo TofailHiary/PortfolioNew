@@ -6,8 +6,8 @@ A modern, responsive portfolio website for Al-Tofail Al-Hiary, a QA & QC Team Le
 
 ## 🚀 Live Demo & Repository
 
-- **Live Portfolio**: [https://TofailHiary.github.io/PortfolioNew/](https://TofailHiary.github.io/PortfolioNew/)
-- **GitHub Repository**: [https://github.com/TofailHiary/PortfolioNew.git](https://github.com/TofailHiary/PortfolioNew.git)
+- **Live Portfolio**: [https://TofailHiary.github.io/Tofail/](https://TofailHiary.github.io/Tofail/)
+- **GitHub Repository**: [https://github.com/TofailHiary/Tofail.git](https://github.com/TofailHiary/Tofail.git)
 
 ## ✨ Features
 
@@ -55,8 +55,8 @@ A modern, responsive portfolio website for Al-Tofail Al-Hiary, a QA & QC Team Le
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/TofailHiary/PortfolioNew.git
-    cd PortfolioNew
+    git clone https://github.com/TofailHiary/Tofail.git
+    cd Tofail
     ```
 
 2.  **Install dependencies:**
@@ -133,7 +133,7 @@ src/
 This project is set up for deployment on static hosting platforms like GitHub Pages or Vercel.
 
 ### GitHub Pages
-1.  Ensure the `homepage` field in `package.json` is set correctly if needed (e.g., `https://TofailHiary.github.io/PortfolioNew/`).
+1.  Ensure the `base` path in `vite.config.ts` is set to `"/Tofail/"` and `basename` in `src/App.tsx` is `"/Tofail"`.
 2.  Build the static files: `npm run build`.
 3.  Deploy the contents of the `dist/` folder to the `gh-pages` branch of your repository.
 
