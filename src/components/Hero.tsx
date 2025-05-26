@@ -4,10 +4,7 @@ import { ArrowRight, Download, MapPin, Mail, Phone } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
   const roles = [
     "QA & QC Team Lead",
@@ -15,6 +12,20 @@ const Hero = () => {
     "Automation Engineer",
     "CI/CD Specialist"
   ];
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  useEffect(() => {
+    const typingDuration = 3500; // Corresponds to 'typing 3.5s' in CSS
+    const pauseDuration = 1500; // Pause before switching to the next role
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, typingDuration + pauseDuration);
+
+    return () => clearInterval(interval);
+  }, [roles.length]);
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -43,18 +54,18 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-white">Al-Tofail</span>
+            <span className="text-foreground">Al-Tofail</span> {/* Changed from text-white */}
             <br />
             <span className="text-gradient">Al-Hiary</span>
           </h1>
           
-          <div className="text-xl md:text-2xl text-gray-300 mb-4 h-8">
-            <div className="typewriter font-mono">
-              {roles[0]}
+          <div className="text-xl md:text-2xl text-foreground mb-4 h-8 flex justify-center items-center"> {/* Changed from text-gray-300 */}
+            <div key={currentRoleIndex} className="typewriter font-mono">
+              {roles[currentRoleIndex]}
             </div>
           </div>
           
-          <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"> {/* Changed from text-gray-400 */}
             Quality ∙ Velocity ∙ Reliability
           </p>
 
@@ -62,15 +73,15 @@ const Hero = () => {
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <div className="glass-card px-4 py-2 rounded-full flex items-center space-x-2">
               <MapPin size={16} className="text-sunset-orange" />
-              <span className="text-sm text-gray-300">Amman, Jordan (UTC +03)</span>
+              <span className="text-sm text-muted-foreground">Amman, Jordan (UTC +03)</span> {/* Changed from text-gray-300 */}
             </div>
             <div className="glass-card px-4 py-2 rounded-full flex items-center space-x-2">
               <Mail size={16} className="text-sunset-orange" />
-              <span className="text-sm text-gray-300">tofailhiary@gmail.com</span>
+              <span className="text-sm text-muted-foreground">tofailhiary@gmail.com</span> {/* Changed from text-gray-300 */}
             </div>
             <div className="glass-card px-4 py-2 rounded-full flex items-center space-x-2">
               <Phone size={16} className="text-sunset-orange" />
-              <span className="text-sm text-gray-300">+962 777 894 429</span>
+              <span className="text-sm text-muted-foreground">+962 777 894 429</span> {/* Changed from text-gray-300 */}
             </div>
           </div>
 

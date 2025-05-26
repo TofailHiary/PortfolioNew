@@ -82,7 +82,7 @@ const Skills = () => {
       skills: [
         { name: "llama.cpp", level: 80 },
         { name: "Ollama", level: 78 },
-        { name: "LangChain", level: 75 },
+        { name: "AI Development tools", level: 75 },
         { name: "AI Testing Tools", level: 85 }
       ]
     },
@@ -93,7 +93,7 @@ const Skills = () => {
       skills: [
         { name: "Allure Reports", level: 90 },
         { name: "Extent Reports", level: 92 },
-        { name: "Google Analytics", level: 80 },
+        { name: "Grafana dashboard", level: 80 },
         { name: "Firebase Crashlytics", level: 85 }
       ]
     }
@@ -121,7 +121,7 @@ const Skills = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gradient mb-4">Skills & Expertise</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto"> {/* Changed from text-gray-400 */}
             Comprehensive technical and leadership capabilities across the full software testing lifecycle
           </p>
         </div>
@@ -135,19 +135,19 @@ const Skills = () => {
             >
               <div className="flex items-center space-x-3 mb-6">
                 <div className={`w-10 h-10 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center group-hover:animate-glow`}>
-                  <category.icon className="text-white" size={20} />
+                  <category.icon className="text-primary-foreground" size={20} /> {/* Changed from text-white */}
                 </div>
-                <h3 className="text-lg font-semibold text-white">{category.title}</h3>
+                <h3 className="text-lg font-semibold text-foreground">{category.title}</h3> {/* Changed from text-white */}
               </div>
 
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex}>
                     <div className="flex justify-between items-center mb-1">
-                      <span className="text-sm text-gray-300">{skill.name}</span>
+                      <span className="text-sm text-secondary-foreground">{skill.name}</span> {/* Changed from text-gray-300 */}
                       <span className="text-xs text-sunset-orange">{skill.level}%</span>
                     </div>
-                    <div className="skill-bar">
+                    <div className="skill-bar"> {/* Background to be handled in index.css */}
                       <div
                         className={`skill-progress ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                         style={{
@@ -165,7 +165,7 @@ const Skills = () => {
 
         {/* Soft Skills Section */}
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-center text-white mb-8">Professional Qualities</h3>
+          <h3 className="text-2xl font-bold text-center text-foreground mb-8">Professional Qualities</h3> {/* Changed from text-white */}
           <div className="flex flex-wrap justify-center gap-4">
             {[
               "Works under pressure",
@@ -179,7 +179,7 @@ const Skills = () => {
             ].map((quality, index) => (
               <div
                 key={index}
-                className="glass-card px-4 py-2 rounded-full text-sm text-gray-300 hover:text-sunset-orange transition-colors duration-200 animate-fade-in"
+                className="glass-card px-4 py-2 rounded-full text-sm text-secondary-foreground hover:text-sunset-orange transition-colors duration-200 animate-fade-in" /* Changed from text-gray-300 */
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {quality}

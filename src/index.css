@@ -5,6 +5,54 @@
 
 @layer base {
   :root {
+    /* Light Theme (Default) */
+    --background: 0 0% 100%; /* White */
+    --foreground: 240 10% 3.9%; /* Dark Slate Gray */
+
+    --card: 0 0% 96%; /* Very light gray */
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 35 100% 52%; /* Sunset Orange */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 240 5% 90%; /* Light gray */
+    --secondary-foreground: 240 8% 25%; /* Darker gray - adjusted for better readability */
+
+    --muted: 240 5% 90%;
+    --muted-foreground: 240 6% 30%; /* Medium dark gray - adjusted for better readability */
+
+    --accent: 35 100% 52%; /* Using primary as accent for now */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%; /* Clearer Red */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5% 85%; /* Light gray border */
+    --input: 0 0% 93%; /* Light gray input background */
+    --ring: 35 100% 52%; /* Sunset Orange for focus */
+
+    --radius: 0.75rem;
+
+    /* Sidebar variables for light theme - can be adjusted */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 35 100% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 90%;
+    --sidebar-accent-foreground: 240 10% 20%;
+    --sidebar-border: 240 5% 85%;
+    --sidebar-ring: 35 100% 52%;
+
+    /* Specific light theme adjustments for glassmorphism if needed */
+    --glass-card-bg: rgba(255, 255, 255, 0.6); /* Lighter glass for light theme */
+    --glass-card-border: rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    /* Dark Theme */
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
 
@@ -15,7 +63,7 @@
     --popover-foreground: 0 0% 98%;
 
     --primary: 35 100% 52%;
-    --primary-foreground: 240 10% 3.9%;
+    --primary-foreground: 240 10% 3.9%; /* Dark text on orange for dark theme */
 
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -33,8 +81,7 @@
     --input: 240 3.7% 15.9%;
     --ring: 35 100% 52%;
 
-    --radius: 0.75rem;
-
+    /* Sidebar variables for dark theme */
     --sidebar-background: 240 10% 3.9%;
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 35 100% 52%;
@@ -43,6 +90,10 @@
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 35 100% 52%;
+
+    /* Specific dark theme adjustments for glassmorphism */
+    --glass-card-bg: rgba(247, 127, 0, 0.05); /* Original orange-tinted glass */
+    --glass-card-border: rgba(247, 127, 0, 0.2);
   }
 }
 
@@ -53,43 +104,66 @@
 
   body {
     @apply bg-background text-foreground font-space;
-    background: radial-gradient(ellipse at top, #023047 0%, #001219 50%, #000000 100%);
     min-height: 100vh;
   }
 
+  /* Conditional background gradient for dark theme */
+  .dark body {
+    background: radial-gradient(ellipse at top, #023047 0%, #001219 50%, #000000 100%);
+  }
+  
   html {
     scroll-behavior: smooth;
   }
 
-  /* Custom scrollbar */
+  /* Custom scrollbar - default (light theme) */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px; /* Slightly wider for better visibility on light themes */
   }
 
   ::-webkit-scrollbar-track {
-    background: #001219;
+    background: hsl(var(--background)); /* Use theme background */
+    border-left: 1px solid hsl(var(--border));
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #F77F00, #FFB703);
-    border-radius: 3px;
+    background: hsl(var(--primary)); /* Use theme primary color */
+    border-radius: 4px;
+    border: 2px solid hsl(var(--background)); /* Creates padding around thumb */
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, #FF9500, #FFD60A);
+    background: hsl(var(--primary) / 0.8); /* Slightly transparent on hover */
   }
 
+  /* Dark theme scrollbar */
+  .dark ::-webkit-scrollbar-track {
+    background: #001219; /* Original dark track */
+    border-left: none;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #F77F00, #FFB703); /* Original dark thumb */
+    border-radius: 3px;
+    border: none;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #FF9500, #FFD60A); /* Original dark thumb hover */
+  }
+
+
   /* Glassmorphism utility */
-  .glass {
-    background: rgba(255, 255, 255, 0.05);
+  .glass { /* General purpose glass, might need theme-specific versions */
+    background: rgba(255, 255, 255, 0.05); /* Default for dark, adjust for light if used */
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .glass-card {
-    background: rgba(247, 127, 0, 0.05);
+    background: var(--glass-card-bg);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(247, 127, 0, 0.2);
+    border: 1px solid var(--glass-card-border);
   }
 
   /* Circuit animation */
@@ -153,7 +227,7 @@
   }
 
   .skill-bar {
-    @apply h-2 bg-gray-800 rounded-full overflow-hidden;
+    @apply h-2 bg-muted dark:bg-secondary rounded-full overflow-hidden;
   }
 
   .skill-progress {

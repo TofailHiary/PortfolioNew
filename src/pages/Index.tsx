@@ -11,7 +11,6 @@ import Certificates from '../components/Certificates';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import BugHuntModal from '../components/BugHuntModal';
-import LighthouseWidget from '../components/LighthouseWidget';
 
 const Index = () => {
   const [bugHuntOpen, setBugHuntOpen] = useState(false);
@@ -40,9 +39,6 @@ const Index = () => {
       <Certificates />
       <Contact />
       <Footer />
-      
-      {/* Floating Widgets */}
-      <LighthouseWidget />
       
       {/* Bug Hunt Modal */}
       <BugHuntModal 

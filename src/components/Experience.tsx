@@ -25,7 +25,7 @@ const Experience = () => {
           highlights: [
             "Governed SDLC/STLC processes",
             "Streamlined release cycles",
-            "Mentored junior team members"
+            "Mentored 10 + junior and senior QA engineers, accelerating their skill growth and fostering a culture of continuous improvement"
           ]
         }
       ],
@@ -38,9 +38,10 @@ const Experience = () => {
       period: "May 2021 – Mar 2022",
       location: "Dubai, UAE",
       highlights: [
-        "Automated 75% of regression testing (Selenium/Cucumber)",
+        "Automated 75% of regression testing (Appium/Cucumber/Java)",
         "Reduced device usage by 75% through smart automation",
-        "Established robust test automation framework"
+        "Established robust test automation framework",
+        "Implemented script-to-email automation pipeline (Extent & Allure dashboards)"
       ],
       icon: Zap,
       color: "from-blue-500 to-blue-600"
@@ -53,7 +54,8 @@ const Experience = () => {
       highlights: [
         "Implemented Extent Reports for comprehensive test reporting",
         "Developed database utility frameworks",
-        "Enhanced test coverage across web platforms"
+        "Enhanced test coverage across web platforms",
+        "Performed full-scope manual testing on the current project while simultaneously designing and maintaining its automation test suites, ensuring complete coverage and faster, high-quality releases."
       ],
       icon: Target,
       color: "from-green-500 to-green-600"
@@ -79,7 +81,8 @@ const Experience = () => {
       highlights: [
         "Led iOS/Android Appium automation initiatives",
         "Owned mobile testing strategies",
-        "Established cross-platform testing standards"
+        "Established cross-platform testing standards",
+        "Authored automation scripts and led manual + automated testing"
       ],
       icon: MapPin,
       color: "from-pink-500 to-pink-600"
@@ -91,8 +94,9 @@ const Experience = () => {
       location: "Amman, Jordan",
       highlights: [
         "Performed full-lifecycle testing",
-        "Specialized in Computer System Validation (CSV)",
-        "Ensured compliance with regulatory standards"
+        "Authored comprehensive QA documentation – Test Plans, Test Cases, Test Summary Reports, and more",
+        "Ensured compliance with regulatory standards",
+        "Tested systems for full compliance with FDA regulations and 21 CFR standards"
       ],
       icon: Calendar,
       color: "from-indigo-500 to-indigo-600"
@@ -104,7 +108,7 @@ const Experience = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gradient mb-4">Work Experience</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto"> {/* Changed from text-gray-400 */}
             A journey through quality assurance excellence across diverse industries and technologies
           </p>
         </div>
@@ -124,12 +128,12 @@ const Experience = () => {
                   <div className="glass-card p-8 rounded-xl group hover:scale-105 transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
                     <div className="flex items-start space-x-4 mb-6">
                       <div className={`w-12 h-12 bg-gradient-to-r ${exp.color} rounded-lg flex items-center justify-center group-hover:animate-glow`}>
-                        <exp.icon className="text-white" size={24} />
+                        <exp.icon className="text-primary-foreground" size={24} /> {/* Changed from text-white */}
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-white mb-1">{exp.company}</h3>
+                        <h3 className="text-xl font-semibold text-foreground mb-1">{exp.company}</h3> {/* Changed from text-white */}
                         <p className="text-sunset-orange font-medium mb-2">{exp.role}</p>
-                        <div className="flex items-center space-x-4 text-sm text-gray-400">
+                        <div className="flex items-center space-x-4 text-sm text-muted-foreground"> {/* Changed from text-gray-400 */}
                           <span className="flex items-center space-x-1">
                             <Calendar size={14} />
                             <span>{exp.period}</span>
@@ -146,11 +150,11 @@ const Experience = () => {
                       <div className="space-y-6">
                         {exp.positions.map((position, posIndex) => (
                           <div key={posIndex} className="border-l-2 border-sunset-orange/30 pl-4">
-                            <h4 className="font-semibold text-white mb-1">{position.title}</h4>
-                            <p className="text-sm text-gray-400 mb-3">{position.period}</p>
+                            <h4 className="font-semibold text-foreground mb-1">{position.title}</h4> {/* Changed from text-white */}
+                            <p className="text-sm text-muted-foreground mb-3">{position.period}</p> {/* Changed from text-gray-400 */}
                             <ul className="space-y-2">
                               {position.highlights.map((highlight, hIndex) => (
-                                <li key={hIndex} className="text-gray-300 text-sm flex items-start space-x-2">
+                                <li key={hIndex} className="text-secondary-foreground text-sm flex items-start space-x-2"> {/* Changed from text-gray-300 */}
                                   <span className="w-1 h-1 bg-sunset-orange rounded-full mt-2 flex-shrink-0"></span>
                                   <span>{highlight}</span>
                                 </li>
@@ -162,7 +166,7 @@ const Experience = () => {
                     ) : (
                       <ul className="space-y-2">
                         {exp.highlights?.map((highlight, hIndex) => (
-                          <li key={hIndex} className="text-gray-300 text-sm flex items-start space-x-2">
+                          <li key={hIndex} className="text-secondary-foreground text-sm flex items-start space-x-2"> {/* Changed from text-gray-300 */}
                             <span className="w-1 h-1 bg-sunset-orange rounded-full mt-2 flex-shrink-0"></span>
                             <span>{highlight}</span>
                           </li>

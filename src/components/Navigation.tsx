@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
+import { ThemeToggleButton } from './ui/ThemeToggleButton'; // Added import
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +46,7 @@ const Navigation = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-gray-300 hover:text-sunset-orange px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                  className="text-muted-foreground dark:text-gray-300 hover:text-sunset-orange px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
@@ -60,7 +61,7 @@ const Navigation = () => {
               href="https://www.linkedin.com/in/al-tofail-al-hiary-3268a798"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-sunset-orange transition-colors duration-200"
+              className="text-muted-foreground dark:text-gray-300 hover:text-sunset-orange transition-colors duration-200"
             >
               <Linkedin size={20} />
             </a>
@@ -68,17 +69,18 @@ const Navigation = () => {
               href="https://github.com/tofailhiary"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-sunset-orange transition-colors duration-200"
+              className="text-muted-foreground dark:text-gray-300 hover:text-sunset-orange transition-colors duration-200"
             >
               <Github size={20} />
             </a>
+            <ThemeToggleButton />
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-sunset-orange p-2"
+              className="text-muted-foreground dark:text-gray-300 hover:text-sunset-orange p-2"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -94,7 +96,7 @@ const Navigation = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-gray-300 hover:text-sunset-orange block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+                className="text-muted-foreground dark:text-gray-300 hover:text-sunset-orange block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
@@ -105,7 +107,7 @@ const Navigation = () => {
                 href="https://www.linkedin.com/in/al-tofail-al-hiary-3268a798"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-sunset-orange transition-colors duration-200"
+                className="text-muted-foreground dark:text-gray-300 hover:text-sunset-orange transition-colors duration-200"
               >
                 <Linkedin size={20} />
               </a>
@@ -113,10 +115,14 @@ const Navigation = () => {
                 href="https://github.com/tofailhiary"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-sunset-orange transition-colors duration-200"
+                className="text-muted-foreground dark:text-gray-300 hover:text-sunset-orange transition-colors duration-200"
               >
                 <Github size={20} />
               </a>
+              {/* Theme toggle button for mobile menu */}
+              <div className="ml-auto"> {/* Pushes toggle to the right if space allows, or adjust layout as needed */}
+                <ThemeToggleButton />
+              </div>
             </div>
           </div>
         </div>
