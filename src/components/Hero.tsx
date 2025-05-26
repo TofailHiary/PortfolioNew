@@ -1,10 +1,18 @@
 
 import { useEffect, useState } from 'react';
-import { ArrowRight, Download, MapPin, Mail, Phone } from 'lucide-react';
+import { ArrowRight, Download, MapPin, Mail, Phone, PlayCircle } from 'lucide-react'; // Added PlayCircle
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"; // Assuming Shadcn UI Dialog
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [isPodcastModalOpen, setIsPodcastModalOpen] = useState(false);
 
   const roles = [
     "QA & QC Team Lead",
@@ -86,7 +94,7 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center sm:items-start"> {/* Changed items-center to sm:items-start */}
             <a
               href="#contact"
               className="btn-primary inline-flex items-center space-x-2 group"
@@ -102,6 +110,30 @@ const Hero = () => {
               <Download size={20} className="group-hover:translate-y-1 transition-transform" />
               <span>Download CV</span>
             </a>
+            {/* Podcast Player Button & Modal */}
+            <Dialog open={isPodcastModalOpen} onOpenChange={setIsPodcastModalOpen}>
+              <DialogTrigger asChild>
+                <button className="btn-secondary inline-flex items-center space-x-2 group">
+                  <PlayCircle size={20} className="group-hover:scale-110 transition-transform" />
+                  <span>Podcast About Me</span>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[525px] bg-card border-border">
+                <DialogHeader>
+                  <DialogTitle className="text-foreground">Podcast: Al-Tofail Al-Hiary - Quality Assurance</DialogTitle>
+                </DialogHeader>
+                <div className="py-4">
+                  <audio 
+                    controls 
+                    src="/Al-Tofail Al-Hiary_ Quality Assurance.wav" 
+                    aria-label="Al-Tofail Al-Hiary Quality Assurance Podcast"
+                    className="w-full rounded-lg"
+                  >
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>
