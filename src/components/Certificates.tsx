@@ -135,7 +135,7 @@ const Certificates = () => {
                 {/* Removed Verified status display */}
                 {!cert.name.toLowerCase().includes("(training)") && cert.fileUrl && (
                   <a 
-                    href={cert.fileUrl} 
+                    href={`${import.meta.env.BASE_URL}${cert.fileUrl}`} 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     download 
