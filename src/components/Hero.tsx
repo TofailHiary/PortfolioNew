@@ -103,7 +103,7 @@ const Hero = () => {
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="/CV_AlTofailAlHiary.pdf"
+              href="CV_AlTofailAlHiary.pdf" 
               download
               className="btn-secondary inline-flex items-center space-x-2 group"
             >
@@ -125,7 +125,7 @@ const Hero = () => {
                 <div className="py-4">
                   <audio 
                     controls 
-                    src="/Al-Tofail Al-Hiary_ Quality Assurance.wav" 
+                    src="Al-Tofail Al-Hiary_ Quality Assurance.wav" 
                     aria-label="Al-Tofail Al-Hiary Quality Assurance Podcast"
                     className="w-full rounded-lg"
                   >

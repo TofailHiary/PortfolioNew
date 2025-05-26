@@ -10,7 +10,7 @@ const Certificates = () => {
       year: "2019",
       category: "Testing",
       color: "from-blue-500 to-blue-600",
-      fileUrl: "/ctfl.pdf"
+      fileUrl: "ctfl.pdf"
     },
     {
       name: "ISTQB® CTAL-TA", 
@@ -19,7 +19,7 @@ const Certificates = () => {
       year: "2021",
       category: "Testing",
       color: "from-green-500 to-green-600",
-      fileUrl: "/ctal-ta.pdf"
+      fileUrl: "ctal-ta.pdf"
     },
     {
       name: "ISTQB® CTAL-TTA",
@@ -28,7 +28,7 @@ const Certificates = () => {
       year: "2022",
       category: "Testing",
       color: "from-purple-500 to-purple-600",
-      fileUrl: "/21-CTAL-TTA-183921-12.pdf"
+      fileUrl: "21-CTAL-TTA-183921-12.pdf"
     },
     {
       name: "CCNA (Training)",
